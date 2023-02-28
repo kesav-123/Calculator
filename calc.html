@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .calculator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+      .calculator input[type="number"] {
+        padding: 10px;
+        margin: 10px;
+        font-size: 18px;
+        width: 200px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      .calculator button {
+        padding: 10px;
+        margin: 10px;
+        font-size: 18px;
+        width: 200px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+      }
+      .calculator button:hover {
+        background-color: #3e8e41;
+      }
+      .result {
+        font-size: 24px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <h1>Calculator</h1>
+      <input id="number1" type="number" placeholder="Enter first number">
+      <input id="number2" type="number" placeholder="Enter second number">
+      <button id="add">Add</button>
+      <button id="subtract">Subtract</button>
+      <button id="multiply">Multiply</button>
+      <div class="result" id="result"></div>
+    </div>
+    <script>
+      const Calculator = {
+        add: (a, b) => a + b,
+        subtract: (a, b) => a - b,
+        multiply: (a, b) => a * b,
+      };
+
+      const number1Input = document.getElementById('number1');
+      const number2Input = document.getElementById('number2');
+      const addBtn = document.getElementById('add');
+      const subtractBtn = document.getElementById('subtract');
+      const multiplyBtn = document.getElementById('multiply');
+      const resultDiv = document.getElementById('result');
+
+      addBtn.addEventListener('click', () => {
+        const a = Number(number1Input.value);
+        const b = Number(number2Input.value);
+        const result = Calculator.add(a, b);
+        resultDiv.textContent = `Result: ${result}`;
+      });
+
+      subtractBtn.addEventListener('click', () => {
+        const a = Number(number1Input.value);
+        const b = Number(number2Input.value);
+        const result = Calculator.subtract(a, b);
+        resultDiv.textContent = `Result: ${result}`;
+      });
+
+      multiplyBtn.addEventListener('click', () => {
+        const a = Number(number1Input.value);
+        const b = Number(number2Input.value);
+        const result = Calculator.multiply(a, b);
+        resultDiv.textContent = `Result: ${result}`;
+      });
+    </script>
+  </body>
+</html>
